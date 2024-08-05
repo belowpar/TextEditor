@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbox" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TextEditorController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu fx:id="fileMenu" mnemonicParsing="false" text="_File">
+          <items>
+            <MenuItem fx:id="newFileButton" mnemonicParsing="false" text="_New" />
+            <MenuItem fx:id="openButton" mnemonicParsing="false" text="_Open…" />
+            <MenuItem fx:id="saveButton" mnemonicParsing="false" text="_Save" />
+            <MenuItem fx:id="saveAsButton" mnemonicParsing="false" text="Save _As…" />
+            <MenuItem fx:id="quitButton" mnemonicParsing="false" text="E_xit" />
+          </items>
+        </Menu>
+            <Menu fx:id="textMenu" mnemonicParsing="false" text="_Text">
+              <items>
+                  <RadioMenuItem fx:id="monospaced" mnemonicParsing="false" text="Monospaced">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="fontGroup" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="serif" mnemonicParsing="false" text="Serif" toggleGroup="$fontGroup" />
+                  <RadioMenuItem fx:id="sansserif" mnemonicParsing="false" text="SansSerif" toggleGroup="$fontGroup" />
+                  <SeparatorMenuItem fx:id="seperator" mnemonicParsing="false" />
+                  <CheckMenuItem fx:id="bold" mnemonicParsing="false" text="Bold" />
+                  <CheckMenuItem fx:id="italic" mnemonicParsing="false" text="Italic" />
+              </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane fx:id="anchor" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextArea fx:id="textArea" prefHeight="375.0" prefWidth="640.0" wrapText="true" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
